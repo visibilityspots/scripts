@@ -1,7 +1,7 @@
-conky-scripts
+Scripts
 =============
 
-Scripts I used for a conky setup on a CentOS 6 Desktop &amp; Fedora 17 distribution
+Scripts I wrote or adopted to make my life easier.
 
 icinga.sh
 ---------
@@ -12,4 +12,9 @@ Usage in conkyrc configfile:
 
   ${execpi 53 ~/.conky/icinga.sh}
 
+encryptation.sh
+---------------
 
+This script I use to decrypt multipe dropbox accounts using encfs for work related data, personal data and evolution data.
+
+More information can be found on http://www.visibilityspots.com/dropbox/
