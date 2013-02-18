@@ -3,7 +3,7 @@ Scripts
 
 Scripts I wrote or adopted to make my life easier. 
 
-Most of them I copied into /usr/bin/ so those commands can be easily used in terminal modus.
+Stored in a .scripts direcoty and created symlinks for into /usr/bin/ (sudo ln -s ~/.scripts /usr/bin/symlinkname) so those commands can be easily used in terminal modus.
 
 Feel free to adopt, change and create issues for them.
 
@@ -29,3 +29,10 @@ shares.sh
 I use a network share on an iomega boxee device as a central place for all my data (pictures, movies, music and random data)
 
 To easily mount and umount those shares I wrote this script.                                                                                 
+
+crashplan.sh
+------------
+
+I'm running an headless crashplan instance on a CentOS server. To have the crashplan Desktop engine working with this setup you have to change the servicePort in the ui.properties file from crashplan and setting up an ssh tunnel through the server.
+
+Using this script I managed to change the ui.properties to switch easily between the server client and the local client.

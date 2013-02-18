@@ -12,13 +12,12 @@ LOCATION='LOCATION WHERE TO MOUNT (/mnt/boxee for example)'
 usage()
 {
 cat << EOF
-usage: $0 options
+usage: $0 [options]
 
 This script decrypts some predefined directories using encfs.
 
 OPTIONS:
    -h      Show this message
-   -d      Mount data share
    -p      Mount pictures share
    -f      Mount movies (films) share
    -m      Mount music share
@@ -26,13 +25,9 @@ OPTIONS:
 EOF
 }
 
-while getopts "hdpfmu" flag
+while getopts "hpfmu" flag
 do
   case "$flag" in
-    d)
-      echo "Mount data share:"
-      sudo mount -t cifs //$IP/data -o username=$USERNAME,password=$PASSWORD $LOCATION/data
-    ;;
     p) 
       echo "Mount pictures share:"
       sudo mount -t cifs //$IP/My-Pictures -o username=$USERNAME,password=$PASSWORD $LOCATION/pictures

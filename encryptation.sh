@@ -6,7 +6,7 @@
 usage()
 {
 cat << EOF
-usage: $0 options
+usage: $0 [options]
 
 This script decrypts some predefined directories using encfs.
 
