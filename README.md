@@ -42,7 +42,7 @@ spamcop.sh
 
 I'm using procmail which filters out incoming spam gathered by fetchmail to some maildir directories. This procmail configuration will also check the incoming mail for spam using spamassissin and moving the malfious message to a predefined spam maildir.
 
-Using this script you will be able to report those spam messages to the spamcop.org service using mutt, learn the message to your local spamassassin bayes client and removing it from the spam maildir.
+Using this script you will be able to report those spam messages to the www.spamcop.net service using mutt, learn the message to your local spamassassin bayes client and removing it from the spam maildir.
 
 An hourly cron job which runs this script every hour even makes it fully automagically.
 
