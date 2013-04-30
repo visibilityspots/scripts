@@ -8,7 +8,7 @@
 # # mate-notify-send -i gtk-dialog-warning -- "${heading}" "${message}"
 # # notify-send -i gtk-dialog-warning -- "${heading}" "${message}"
 
-server='visibilityspots.dyndns.org'
+server='YOUR SERVER ADDRESS'
 
 usage()
 {
