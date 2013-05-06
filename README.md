@@ -63,3 +63,10 @@ setsmtp.sh
 I'm using msmtp on my local machine for sending mails using mutt. Depending on my network connection this server can defer. Because I don't wanted to rewrite every time I'm on a different location my muttrc configuration I wrote this script which will points to the right msmtp configuration (https://wiki.archlinux.org/index.php/Msmtp).
 
 You can also write a script which will sets your msmtp server depending on your network connection parameters and call that script on startup.
+
+hubot-script.sh
+---------------
+
+I deployed a hubot for an IRC channel. The default features were not sufficient so I installed some plugins from https://github.com/github/hubot-scripts. Thing is, it's quite a lot of work, declaring the dependencies, adding the plugin specific parameters, updating the npm environment...
+
+So I wrote this script. Just copy it into your hubot root dir (/opt/hubot/ for example) and run it using ./plugin-hubot NAMEOFTHESCRIPT. Just the name of the script is sufficient, you don't have to specify the .coffee extension. 
