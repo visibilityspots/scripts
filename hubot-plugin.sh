@@ -40,7 +40,7 @@ npm update
 # Add configuration parameters into hubot.env
 if [ $CONFIGDEPS -gt 0 ];then
   for i in $(seq 1 $CONFIGDEPS); do
-        COMMAND=`curl -s $URL | sed -n '/Configuration:/,/Commands/p' | sed '1d;$d' | sed 's/#   //' | head -$i | tail -1`
+        COMMAND=`curl -s $URL | sed -n '/Configuration:/,/Commands/p' | sed '1d;$d' | sed 's/#   //' | cut -d ' ' -f 1 | head -$i | tail -1` 
         if [ $COMMAND != "None" ]; then
                 if [ $(cat hubot.env | grep $COMMAND | wc -l) -le 0 ];then
                         echo "export ${COMMAND}=\"UNDEFINED\"" >> hubot.env;
