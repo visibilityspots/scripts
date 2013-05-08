@@ -64,6 +64,19 @@ I'm using msmtp on my local machine for sending mails using mutt. Depending on m
 
 You can also write a script which will sets your msmtp server depending on your network connection parameters and call that script on startup.
 
+hubot
+-----
+
+A init script for hubot on a CentOS machine based on the one from linickx (https://gist.github.com/linickx/3692156). Place the hubot file to /etc/init.d/hubot and adapt the parameters to your preferences:
+
+DAEMON="bin/hubot"
+ROOT_DIR="/opt/hubot"
+DAEMON_ADAPTER="irc"
+LOG_FILE="/var/log/hubot.log"
+USER=hubot
+
+I also wrote a puppet-hubot module which automatically deploys this script (https://github.com/visibilityspots/puppet-hubot)
+
 hubot-script.sh
 ---------------
 
