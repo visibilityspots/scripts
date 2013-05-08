@@ -23,7 +23,7 @@ fi
 if [ $COUNTDEPS -gt 0 ];then
   for i in $(seq 1 $COUNTDEPS); do
         DEP=`curl -s $URL | sed -n '/Dependencies:/,/Configuration/p' | sed '1d;$d' | sed 's/#   //' | head -$i | tail -1`
-        if [[ $DEP != "None" ]]; then
+	if [[ ! $DEP =~ ^None.*|^none.* ]]; then        
         DEPGREP=`curl -s $URL | sed -n '/Dependencies:/,/Configuration/p' | sed '1d;$d' | sed 's/#   //' | head -$i | tail -1 | cut -d ':' -f 1`
         DEP=$(echo "$DEP" | sed 's/: \"/: \">= /g')
                 DEP=$(echo "$DEP" | sed 's/"/\\"/g')
@@ -37,11 +37,11 @@ fi
 # Update npm environment
 npm update
  
-# Add configuration parameters into hubot.env
+# Add configuration parameters into plugins.env
 if [ $CONFIGDEPS -gt 0 ];then
   for i in $(seq 1 $CONFIGDEPS); do
-        COMMAND=`curl -s $URL | sed -n '/Configuration:/,/Commands/p' | sed '1d;$d' | sed 's/#   //' | cut -d ' ' -f 1 | head -$i | tail -1` 
-        if [ $COMMAND != "None" ]; then
+        COMMAND=`curl -s $URL | sed -n '/Configuration:/,/Commands/p' | sed '1d;$d' | sed 's/#   //' | cut -d ' ' -f 1 | head -$i | tail -1`
+        if [[ ! $COMMAND =~ ^None.*|^none.* ]]; then
                 if [ $(cat hubot.env | grep $COMMAND | wc -l) -le 0 ];then
                         echo "export ${COMMAND}=\"UNDEFINED\"" >> hubot.env;
                 fi
