@@ -7,15 +7,6 @@ Stored in a .scripts direcoty and created symlinks for into /usr/bin/ (sudo ln -
 
 Feel free to adopt, change and create issues for them.
 
-icinga.sh
----------
-
-This script can be used to display the output of icinga on your desktop conky setup. 
-
-Usage in conkyrc configfile:
-
-  ${execpi 53 ~/.conky/icinga.sh}
-
 encryptation.sh
 ---------------
 
@@ -88,3 +79,12 @@ conky-tracks.sh
 ---------------
 
 In my conky-colors setup I integrated my todo tasklist. The conky configuration will call this script and read out the stripped out tasklist file. Soon I will write a blogpost about my conky setup with the full configuration file.
+
+conky-icinga.sh
+---------
+ 
+This script can be used to display the output of icinga on your desktop conky setup.
+ 
+Usage in conkyrc configfile:
+ 
+  ${execpi 53 PATH/TO/conky-icinga.sh}
