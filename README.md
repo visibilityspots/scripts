@@ -83,3 +83,8 @@ hubot-script.sh
 I deployed a hubot for an IRC channel. The default features were not sufficient so I installed some plugins from https://github.com/github/hubot-scripts. Thing is, it's quite a lot of work, declaring the dependencies, adding the plugin specific parameters, updating the npm environment...
 
 So I wrote this script. Just copy it into your hubot root dir (/opt/hubot/ for example) and run it using ./plugin-hubot NAMEOFTHESCRIPT. Just the name of the script is sufficient, you don't have to specify the .coffee extension. 
+
+conky-tracks.sh
+---------------
+
+In my conky-colors setup I integrated my todo tasklist. The conky configuration will call this script and read out the stripped out tasklist file. Soon I will write a blogpost about my conky setup with the full configuration file.
