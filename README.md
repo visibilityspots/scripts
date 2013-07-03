@@ -88,3 +88,18 @@ This script can be used to display the output of icinga on your desktop conky se
 Usage in conkyrc configfile:
  
   ${execpi 53 PATH/TO/conky-icinga.sh}
+
+puppetcheck.sh
+--------------
+
+Using a puppet setup controlled by jenkins we had a problem that during the release on the puppetmaster all puppet-modules being updated using librarian-puppet a puppet agent --test run from a client fails.
+
+Because those clients run puppet every 15 minutes by a cron job this conflict was quite anoying while adapting are environment.
+
+In our puppet-release jenkins job we now start by writing away the status to a html file (busy) and at the end of the jenkins job changing 'busy' to 'free'.
+
+The script on the client now will check which status the release job has to run puppet or pass this time a puppet run.
+
+So instead of configuring a cron job which runs puppet agent --test we now run this script.
+
+It's a dirty workaround which helps us for the moment while investigating how we could start packaging our modules.
