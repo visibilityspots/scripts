@@ -94,9 +94,24 @@ puppetcheck.sh
 
 Using a puppet setup controlled by jenkins we had a problem that during the release on the puppetmaster all puppet-modules being updated using librarian-puppet a puppet agent --test run from a client fails.
 
-Because those clients run puppet every 15 minutes by a cron job this conflict was quite anoying while adapting are environment.
+Because those clients run puppet every 15 minutes by a cron job this conflict was quite anoying while adapting our environment.
 
-In our puppet-release jenkins job we now start by writing away the status to a html file (busy) and at the end of the jenkins job changing 'busy' to 'free'.
+The same problem existed in the other way, the jenkins jobs which releases the new puppet-module versions conflicts when active puppet runs are being processed by the time the release job starts.
+
+So we wrote 2 scripts, one on the jenkins job by a 'execute shell script on remote host using ssh' pointing to the puppetmaster which uses passenger:
+
+	STATE=$(passenger-status | grep active | head -1 | awk '{print $3}')
+	while [ $STATE -gt 0 ]
+	do
+	  echo 'Sleeping one minute and check again because '$STATE' active proces(ses)'
+	  sleep 1m
+	  STATE=$(passenger-status | grep active | head -1 | awk '{print $3}')
+	done
+	echo 'Done, their is no active proces ('$STATE') so release may begin'
+
+That way the jenkins-release job will be timed out as long as their are active passenger processes.
+
+Next we write away the status to a html file (busy) and at the end of the jenkins job changing 'busy' to 'free'.
 
 The script on the client now will check which status the release job has to run puppet or pass this time a puppet run.
 
