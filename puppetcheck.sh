@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL="HTTP://URL/TO/STATUSPAGE.HTML"
+URL=${1:-HTTP://URL/TO/STATUSPAGE.HTML}
 
 STATUS=$(curl -s $URL | cut -d ' ' -f 1)
 if [[ "$STATUS" == "busy" ]]; then
