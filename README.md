@@ -118,3 +118,13 @@ The script on the client now will check which status the release job has to run 
 So instead of configuring a cron job which runs puppet agent --test we now run this script.
 
 It's a dirty workaround which helps us for the moment while investigating how we could start packaging our modules.
+
+backupdb.sh
+-----------
+
+This script can be used to create a gzipped mysqldump of your mysql databases and stores them into a backup directory. A mail will be sent with an overview of the performed backups.
+
+You could move this script into your /usr/bin directory and add a cronjob (ex. Weekly) for it:
+
+	# Backup mysql db's weekly
+	0 0 * * 0 backupdb.sh -c >/devv/null 2>&1
