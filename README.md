@@ -1,5 +1,5 @@
 Scripts
-=============
+=======
 
 Scripts I wrote or adopted to make my life easier. 
 
@@ -128,3 +128,8 @@ You could move this script into your /usr/bin directory and add a cronjob (ex. W
 
 	# Backup mysql db's weekly
 	0 0 * * 0 backupdb.sh -c >/devv/null 2>&1
+
+cmus.sh
+-------
+
+This scripts uses the cmus-remote service to get the active song and artist of the cmus (http://cmus.sourceforge.net/) music player. I use it in a conky setup.
