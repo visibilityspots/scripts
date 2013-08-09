@@ -133,3 +133,12 @@ cmus.sh
 -------
 
 This scripts uses the cmus-remote service to get the active song and artist of the cmus (http://cmus.sourceforge.net/) music player. I use it in a conky setup.
+
+conky-monitis.sh
+----------------
+
+This script is used to display some output of the monitor.us service. It uses the http://www.monitis.com/monitisCLT.html command line script.
+
+Usage in conkyrc configfile:
+
+  ${execpi 53 PATH/TO/conky-monitis.sh -OPTION}
