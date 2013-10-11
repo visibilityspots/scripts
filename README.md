@@ -142,3 +142,9 @@ This script is used to display some output of the monitor.us service. It uses th
 Usage in conkyrc configfile:
 
   ${execpi 53 PATH/TO/conky-monitis.sh -OPTION}
+
+clean-repository.sh
+-------------------
+
+A script to clean out all rpm packages older than # versions of a rpm yum repository directory which can be used before using createrepo. That way you can keep your repositories clean.
+All older scripts will be removed by rm -rf. But it's also possible to move them to another directory from where you could easily create an archive yum repository.
