@@ -3,14 +3,14 @@ Scripts
 
 Scripts I wrote or adopted to make my life easier. 
 
-Stored in a .scripts direcoty and created symlinks for into /usr/bin/ (sudo ln -s ~/.scripts /usr/bin/symlinkname) so those commands can be easily used in terminal modus.
+Stored in a .scripts directory and created symlinks for into /usr/bin/ (sudo ln -s ~/.scripts /usr/bin/symlinkname) so those commands can be easily used in terminal modus.
 
 Feel free to adopt, change and create issues for them.
 
 encryptation.sh
 ---------------
 
-This script I use to decrypt multipe dropbox accounts using encfs for work related data, personal data and evolution data.
+This script I use to decrypt multiple dropbox accounts using encfs for work related data, personal data and evolution data.
 
 More information can be found on http://www.visibilityspots.com/dropbox/
 
@@ -31,9 +31,9 @@ Using this script I managed to change the ui.properties to switch easily between
 spamcop.sh
 ----------
 
-I'm using procmail which filters out incoming spam gathered by fetchmail to some maildir directories. This procmail configuration will also check the incoming mail for spam using spamassissin and moving the malfious message to a predefined spam maildir.
+I'm using procmail which filters out incoming spam gathered by fetchmail to some maildir directories. This procmail configuration will also check the incoming mail for spam using spamassissin and moving the malicious message to a predefined spam maildir.
 
-Using this script you will be able to report those spam messages to the www.spamcop.net service using mutt, learn the message to your local spamassassin bayes client and removing it from the spam maildir.
+Using this script you will be able to report those spam messages to the www.spamcop.net service using mutt, learn the message to your local spamassissin bayes client and removing it from the spam maildir.
 
 An hourly cron job which runs this script every hour even makes it fully automagically.
 
@@ -78,14 +78,14 @@ So I wrote this script. Just copy it into your hubot root dir (/opt/hubot/ for e
 conky-tracks.sh
 ---------------
 
-In my conky-colors setup I integrated my todo tasklist. The conky configuration will call this script and read out the stripped out tasklist file. Soon I will write a blogpost about my conky setup with the full configuration file.
+In my conky-colors setup I integrated my todo task list. The conky configuration will call this script and read out the stripped out task list file. Soon I will write a blogpost about my conky setup with the full configuration file.
 
 conky-icinga.sh
 ---------
  
 This script can be used to display the output of icinga on your desktop conky setup.
  
-Usage in conkyrc configfile:
+Usage in conkyrc config file:
  
   ${execpi 53 PATH/TO/conky-icinga.sh}
 
@@ -94,7 +94,7 @@ puppetcheck.sh
 
 Using a puppet setup controlled by jenkins we had a problem that during the release on the puppetmaster all puppet-modules being updated using librarian-puppet a puppet agent --test run from a client fails.
 
-Because those clients run puppet every 15 minutes by a cron job this conflict was quite anoying while adapting our environment.
+Because those clients run puppet every 15 minutes by a cron job this conflict was quite annoying while adapting our environment.
 
 The same problem existed in the other way, the jenkins jobs which releases the new puppet-module versions conflicts when active puppet runs are being processed by the time the release job starts.
 
@@ -107,7 +107,7 @@ So we wrote 2 scripts, one on the jenkins job by a 'execute shell script on remo
 	  sleep 1m
 	  STATE=$(passenger-status | grep active | head -1 | awk '{print $3}')
 	done
-	echo 'Done, their is no active proces ('$STATE') so release may begin'
+	echo 'Done, their is no active process ('$STATE') so release may begin'
 
 That way the jenkins-release job will be timed out as long as their are active passenger processes.
 
@@ -139,7 +139,7 @@ conky-monitis.sh
 
 This script is used to display some output of the monitor.us service. It uses the http://www.monitis.com/monitisCLT.html command line script.
 
-Usage in conkyrc configfile:
+Usage in conkyrc config file:
 
   ${execpi 53 PATH/TO/conky-monitis.sh -OPTION}
 
@@ -147,4 +147,4 @@ clean-repository.sh
 -------------------
 
 A script to clean out all rpm packages older than # versions of a rpm yum repository directory which can be used before using createrepo. That way you can keep your repositories clean.
-All older scripts will be removed by rm -rf. But it's also possible to move them to another directory from where you could easily create an archive yum repository.
+All older packages will be removed by rm -rf. But it's also possible to move them to another directory from where you could easily create an archive yum repository of them.
