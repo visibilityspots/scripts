@@ -148,3 +148,14 @@ clean-repository.sh
 
 A script to clean out all rpm packages older than # versions of a rpm yum repository directory which can be used before using createrepo. That way you can keep your repositories clean.
 All older packages will be removed by rm -rf. But it's also possible to move them to another directory from where you could easily create an archive yum repository of them.
+
+display.sh
+----------
+
+Using this script you can set a display on a raspberry pi running raspbian into sleep mode, standby and reactivate it using the tvservice command on a raspbian setup. I moved this script myself into /usr/bin/ named display (/usr/bin/display).
+
+Using cron our screens will get on and off automatically each working day.
+
+	# Screen automation
+	00 08 * * 1-5 /usr/bin/display -d
+	00 17 * * 1-5 /usr/bin/display -e
